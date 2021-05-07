@@ -33,6 +33,9 @@ public class DataSetJSONMarshaller {
     private static final String DATASET_COLUMN_ID = "id";
     private static final String DATASET_COLUMN_TYPE = "type";
     private static final String DATASET_COLUMN_VALUES = "values";
+    
+    
+    private static final String NULL_VALUE = "";
 
     private static DataSetJSONMarshaller SINGLETON = new DataSetJSONMarshaller();
 
@@ -73,7 +76,7 @@ public class DataSetJSONMarshaller {
                         break;
                     }
                     default:
-                        valuesJson.set(i++, value.toString());
+                        valuesJson.set(i++, value == null ? NULL_VALUE : value.toString());
                         break;
                 }
             }
